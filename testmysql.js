@@ -4,7 +4,7 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "root",
-    database: "<DB name>",
+    database: "getgather",
     port: "8889"
 });
 
@@ -13,7 +13,8 @@ con.connect(function(err) {
     console.log("success connect");
     con.query("SELECT `eid`, `name` FROM `testtable` ", function(err, result, fields) {
         if (err) throw err;
-        for (i = 0; i < fields.length; i++) {
+        console.log(result.length);
+        for (i = 0; i < result.length; i++) {
             console.log(i + ")" + result[i].eid + ":" + result[i].name);
         }
 
